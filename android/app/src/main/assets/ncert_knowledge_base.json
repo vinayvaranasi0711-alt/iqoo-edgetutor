@@ -1,0 +1,258 @@
+{
+  "version": "2.0-comprehensive-cbse-jee",
+  "generated_for": "iQOO EdgeTutor Offline Engine",
+  "topics": [
+    {
+      "id": "cbse9_sci_motion",
+      "grade": "Class 9",
+      "subject": "Science (Physics)",
+      "chapter": "Motion",
+      "exam": "CBSE 9",
+      "keywords": ["motion", "velocity", "acceleration", "displacement", "distance", "equations of motion", "speed"],
+      "core_principles": [
+        "Distance is the total path length (scalar); Displacement is the shortest straight-line distance between initial and final positions (vector).",
+        "Average Speed = Total Distance / Total Time; Average Velocity = Total Displacement / Total Time.",
+        "Uniform acceleration equations: (1) v = u + at, (2) s = ut + 0.5*a*t^2, (3) v^2 = u^2 + 2as.",
+        "Slope of distance-time graph represents speed; Slope of velocity-time graph represents acceleration; Area under v-t graph represents displacement."
+      ],
+      "pitfalls": [
+        "Displacement can be zero even if distance is positive (e.g. completing a circular lap).",
+        "Sign convention: Always treat deceleration (braking) as negative acceleration."
+      ],
+      "formulas": [
+        "v = u + a t",
+        "s = u t + \\frac{1}{2} a t^2",
+        "v^2 = u^2 + 2 a s",
+        "v_{\\text{avg}} = \\frac{u + v}{2}"
+      ]
+    },
+    {
+      "id": "cbse9_sci_force",
+      "grade": "Class 9",
+      "subject": "Science (Physics)",
+      "chapter": "Force and Laws of Motion",
+      "exam": "CBSE 9",
+      "keywords": ["newton", "inertia", "momentum", "force", "recoil", "action reaction", "impulse"],
+      "core_principles": [
+        "Newton's First Law (Inertia): An object remains at rest or uniform motion unless acted upon by an unbalanced external force.",
+        "Newton's Second Law: Force is proportional to the rate of change of momentum: F = dp/dt = m*a.",
+        "Newton's Third Law: For every action, there is an equal and opposite reaction acting on two different bodies.",
+        "Conservation of Momentum: In an isolated system, total momentum before collision = total momentum after collision: m1*u1 + m2*u2 = m1*v1 + m2*v2."
+      ],
+      "pitfalls": [
+        "Action and reaction forces do NOT cancel each other because they act on different objects."
+      ],
+      "formulas": [
+        "p = m v",
+        "F = m a = \\frac{m(v - u)}{t}",
+        "m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2"
+      ]
+    },
+    {
+      "id": "cbse9_sci_grav",
+      "grade": "Class 9",
+      "subject": "Science (Physics)",
+      "chapter": "Gravitation & Floatation",
+      "exam": "CBSE 9",
+      "keywords": ["gravitation", "gravity", "weight", "mass", "buoyancy", "archimedes", "thrust", "density"],
+      "core_principles": [
+        "Universal Law of Gravitation: Every particle attracts every other particle with force F = G * (m1*m2) / r^2, where G = 6.674e-11 N m^2/kg^2.",
+        "Acceleration due to gravity on Earth: g = G*M / R^2 ≈ 9.8 m/s^2.",
+        "Mass is constant everywhere; Weight W = m*g varies with gravitational field (zero at Earth's center).",
+        "Archimedes' Principle: An immersed body experiences an upward buoyant force equal to the weight of the fluid displaced: F_b = V_disp * rho_fluid * g."
+      ],
+      "pitfalls": [
+        "Do not confuse universal constant G (scalar) with local acceleration g (vector).",
+        "Objects float when average density is less than liquid density."
+      ],
+      "formulas": [
+        "F = G \\frac{M m}{R^2}",
+        "g = \\frac{G M}{R^2}",
+        "W = m g",
+        "F_b = V \\rho_{\\text{fluid}} g"
+      ]
+    },
+    {
+      "id": "cbse9_math_poly",
+      "grade": "Class 9",
+      "subject": "Mathematics",
+      "chapter": "Polynomials & Factoring",
+      "exam": "CBSE 9",
+      "keywords": ["polynomial", "factor theorem", "remainder theorem", "algebra", "identity", "zero of polynomial"],
+      "core_principles": [
+        "Remainder Theorem: When polynomial p(x) is divided by (x - a), the remainder is p(a).",
+        "Factor Theorem: (x - a) is a factor of p(x) if and only if p(a) = 0.",
+        "Standard algebraic identities: (a + b)^2 = a^2 + 2ab + b^2, (a - b)^2 = a^2 - 2ab + b^2, a^2 - b^2 = (a-b)(a+b), a^3 + b^3 = (a+b)(a^2 - ab + b^2)."
+      ],
+      "pitfalls": [
+        "Check if powers of variable x are whole numbers; negative or fractional exponents are not polynomials."
+      ],
+      "formulas": [
+        "(x+y+z)^2 = x^2+y^2+z^2+2xy+2yz+2zx",
+        "x^3+y^3+z^3-3xyz = (x+y+z)(x^2+y^2+z^2-xy-yz-zx)"
+      ]
+    },
+    {
+      "id": "cbse10_sci_light",
+      "grade": "Class 10",
+      "subject": "Science (Physics)",
+      "chapter": "Light: Reflection and Refraction",
+      "exam": "CBSE 10",
+      "keywords": ["reflection", "refraction", "mirror formula", "lens formula", "magnification", "focal length", "snell's law"],
+      "core_principles": [
+        "Mirror Formula: 1/f = 1/v + 1/u, where u is object distance (always negative in Cartesian convention), v is image distance, f is focal length.",
+        "Lens Formula: 1/f = 1/v - 1/u.",
+        "Magnification: For mirrors m = -v/u = h_i/h_o; For lenses m = +v/u = h_i/h_o.",
+        "Snell's Law: n1 * sin(i) = n2 * sin(r) or n21 = sin(i)/sin(r).",
+        "Power of a Lens: P = 1 / f (in metres), measured in Dioptres (D). Convex lens has positive power; concave lens has negative power."
+      ],
+      "pitfalls": [
+        "Always convert focal length to METRES before calculating power in Dioptres.",
+        "Remember the minus sign in mirror magnification (m = -v/u) vs lens (m = +v/u)."
+      ],
+      "formulas": [
+        "\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u} \\quad \\text{(Mirror)}",
+        "\\frac{1}{f} = \\frac{1}{v} - \\frac{1}{u} \\quad \\text{(Lens)}",
+        "m = -\\frac{v}{u} \\quad \\text{(Mirror)}, \\quad m = \\frac{v}{u} \\quad \\text{(Lens)}",
+        "n_{21} = \\frac{\\sin i}{\\sin r} = \\frac{v_1}{v_2}",
+        "P = \\frac{1}{f(\\text{in m})}"
+      ]
+    },
+    {
+      "id": "cbse10_sci_electricity",
+      "grade": "Class 10",
+      "subject": "Science (Physics)",
+      "chapter": "Electricity & Circuits",
+      "exam": "CBSE 10",
+      "keywords": ["ohm", "resistance", "resistivity", "current", "voltage", "series", "parallel", "joule heating", "power"],
+      "core_principles": [
+        "Ohm's Law: Potential difference V across conductor is proportional to current I at constant temperature: V = I * R.",
+        "Resistance depends on length and area: R = rho * (L / A), where rho is resistivity.",
+        "Resistors in Series: R_eq = R1 + R2 + R3 (Current remains identical across each).",
+        "Resistors in Parallel: 1/R_eq = 1/R1 + 1/R2 + 1/R3 (Voltage remains identical across each).",
+        "Joule's Law of Heating: Heat H = I^2 * R * t.",
+        "Electric Power: P = V * I = I^2 * R = V^2 / R. Commercial unit: 1 kWh = 3.6e6 Joules."
+      ],
+      "pitfalls": [
+        "Resistivity depends only on material and temperature, NOT on length or cross-sectional area.",
+        "In household wiring, appliances are always connected in PARALLEL so each receives full 220V."
+      ],
+      "formulas": [
+        "V = I R",
+        "R = \\rho \\frac{l}{A}",
+        "R_{\\text{series}} = R_1 + R_2 + R_3",
+        "\\frac{1}{R_{\\text{parallel}}} = \\frac{1}{R_1} + \\frac{1}{R_2}",
+        "H = I^2 R t",
+        "P = V I = \\frac{V^2}{R} = I^2 R"
+      ]
+    },
+    {
+      "id": "cbse10_math_trig",
+      "grade": "Class 10",
+      "subject": "Mathematics",
+      "chapter": "Introduction to Trigonometry",
+      "exam": "CBSE 10",
+      "keywords": ["trigonometry", "sin", "cos", "tan", "pythagoras", "identity", "elevation", "depression"],
+      "core_principles": [
+        "Right triangle ratios: sin(θ) = Opp/Hyp, cos(θ) = Adj/Hyp, tan(θ) = Opp/Adj.",
+        "Fundamental Identities: (1) sin^2(θ) + cos^2(θ) = 1, (2) 1 + tan^2(θ) = sec^2(θ), (3) 1 + cot^2(θ) = cosec^2(θ).",
+        "Standard values: sin(30°)=1/2, sin(45°)=1/√2, sin(60°)=√3/2, tan(45°)=1."
+      ],
+      "pitfalls": [
+        "Check which angle is the reference angle: Opposite and Adjacent sides swap when looking from angle A versus angle C."
+      ],
+      "formulas": [
+        "\\sin^2\\theta + \\cos^2\\theta = 1",
+        "1 + \\tan^2\\theta = \\sec^2\\theta",
+        "1 + \\cot^2\\theta = \\csc^2\\theta",
+        "\\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta}"
+      ]
+    },
+    {
+      "id": "cbse10_math_quad",
+      "grade": "Class 10",
+      "subject": "Mathematics",
+      "chapter": "Quadratic Equations",
+      "exam": "CBSE 10",
+      "keywords": ["quadratic", "roots", "discriminant", "factorization", "parabola"],
+      "core_principles": [
+        "Standard form: a*x^2 + b*x + c = 0 (where a ≠ 0).",
+        "Discriminant D = b^2 - 4*a*c governs root nature: D > 0 (two distinct real roots), D = 0 (two equal real roots), D < 0 (no real roots).",
+        "Quadratic Formula: x = (-b ± √(b^2 - 4ac)) / (2a)."
+      ],
+      "pitfalls": [
+        "Remember denominator is 2a, not just 2.",
+        "Watch signs when calculating -b and b^2."
+      ],
+      "formulas": [
+        "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
+        "D = b^2 - 4ac",
+        "x_1 + x_2 = -\\frac{b}{a}, \\quad x_1 x_2 = \\frac{c}{a}"
+      ]
+    },
+    {
+      "id": "jee_phy_mechanics",
+      "grade": "Class 11",
+      "subject": "Physics",
+      "chapter": "Laws of Motion & Friction",
+      "exam": "JEE Main / Adv",
+      "keywords": ["inclined plane", "friction", "normal force", "acceleration", "pulley", "pseudo force"],
+      "core_principles": [
+        "Inclined plane: mg*sin(θ) parallel to incline, mg*cos(θ) perpendicular into incline.",
+        "Normal force N = mg*cos(θ); Kinetic friction f_k = μ_k * mg * cos(θ).",
+        "Net acceleration a = g*(sin(θ) - μ_k*cos(θ)).",
+        "Condition for motion on incline: tan(θ) > μ_s. If not, block remains at rest (a = 0)."
+      ],
+      "pitfalls": [
+        "Never blindly equate N = mg; normal force depends on component of weight and external perpendicular forces."
+      ],
+      "formulas": [
+        "N = m g \\cos\\theta",
+        "f_k = \\mu_k m g \\cos\\theta",
+        "a = g (\\sin\\theta - \\mu_k \\cos\\theta)"
+      ]
+    },
+    {
+      "id": "jee_math_calculus",
+      "grade": "Class 12",
+      "subject": "Mathematics",
+      "chapter": "Integrals (Calculus)",
+      "exam": "JEE Main / Adv",
+      "keywords": ["integrate", "integration by parts", "ilate", "calculus", "definite integral", "substitution"],
+      "core_principles": [
+        "Integration by Parts: ∫ u * v' dx = u * v - ∫ u' * v dx.",
+        "ILATE priority: Inverse trig > Logarithmic > Algebraic > Trigonometric > Exponential.",
+        "For ∫ x * sin(x) dx: u = x, dv = sin(x) dx => result = -x*cos(x) + sin(x) + C."
+      ],
+      "pitfalls": [
+        "Do not forget integration constant + C.",
+        "Watch negative sign: ∫ sin(x) dx = -cos(x)."
+      ],
+      "formulas": [
+        "\\int u v' dx = u v - \\int u' v dx",
+        "\\int x \\sin x \\, dx = -x \\cos x + \\sin x + C"
+      ]
+    },
+    {
+      "id": "jee_chem_equilibrium",
+      "grade": "Class 11",
+      "subject": "Chemistry",
+      "chapter": "Chemical Equilibrium",
+      "exam": "JEE Main / NEET",
+      "keywords": ["equilibrium", "kc", "kp", "le chatelier", "reaction quotient"],
+      "core_principles": [
+        "For aA + bB ⇌ cC + dD: Kc = [C]^c * [D]^d / ([A]^a * [B]^b).",
+        "Kp = Kc * (R*T)^(Δn_g), where Δn_g = gaseous product moles - gaseous reactant moles.",
+        "Le Chatelier's Principle: System shifts to counteract perturbations in pressure, temperature, or concentration."
+      ],
+      "pitfalls": [
+        "Solids and pure liquids are omitted from equilibrium expressions (activity = 1).",
+        "Temperature T must strictly be in Kelvin (K = °C + 273.15)."
+      ],
+      "formulas": [
+        "K_c = \\frac{[C]^c [D]^d}{[A]^a [B]^b}",
+        "K_p = K_c (R T)^{\\Delta n_g}"
+      ]
+    }
+  ]
+}

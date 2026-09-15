@@ -1,0 +1,24 @@
+﻿# Android build & caches
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+out/
+build/
+android/build/
+android/app/build/
+android/.gradle/
+.gradle/
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+local.properties
+
+# OS & Log files
+.DS_Store
+Thumbs.db
+*.log

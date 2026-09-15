@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">iQOO EdgeTutor</string>
+    <string name="tagline">100% Offline On-Device AI Mentor</string>
+    <string name="hardware_badge">Snapdragon NPU Powered</string>
+    <string name="status_offline">Offline Mode (0 KB/s)</string>
+</resources>
