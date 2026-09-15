@@ -6,7 +6,10 @@
 [![Platform](https://img.shields.io/badge/Platform-Android%208.0%2B%20%28API%2026%2B%29-brightgreen.svg)](https://developer.android.com)
 [![Offline](https://img.shields.io/badge/Offline-100%25%20Zero%20Network-blue.svg)](#strict-offline-architecture)
 [![NPU](https://img.shields.io/badge/Hardware-Snapdragon%20Hexagon%20HTP-orange.svg)](#hardware-synergy)
-[![UI](https://img.shields.io/badge/UI-Jetpack%20Compose-purple.svg)](#)
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Interactive%20Demo-Try%20Now-F7B500?style=for-the-badge)](https://vinayvaranasi0711-alt.github.io/iqoo-edgetutor/)
+
+> 🌐 **Live Web Demo:** [https://vinayvaranasi0711-alt.github.io/iqoo-edgetutor/](https://vinayvaranasi0711-alt.github.io/iqoo-edgetutor/)  
+> *(Test the full interactive iQOO 12 simulator, camera scanning, KaTeX formulas, and CBSE/JEE Vault directly in any browser!)*
 
 ---
 
