@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>iQOO EdgeTutor • Monster Offline AI</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -274,6 +277,37 @@
                     </div>
                 </div>
 
+                <!-- Live Socratic Mentoring Interactive Card (Available directly on Dashboard) -->
+                <div class="p-3.5 rounded-2xl bg-gradient-to-br from-[#121626] to-[#0A0D18] border border-iqoo-cyan/60 shadow-lg space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[9.5px] font-mono-code font-bold text-iqoo-cyan uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="message-square-quote" class="w-3.5 h-3.5 text-iqoo-cyan"></i>
+                            LIVE SOCRATIC TUTORING (TRY A/B/C NOW)
+                        </span>
+                        <span class="text-[8px] font-mono-code px-2 py-0.5 rounded-full bg-iqoo-cyan/20 text-iqoo-cyan border border-iqoo-cyan/40 font-bold">100% OFFLINE</span>
+                    </div>
+                    <div class="bg-[#060810] p-2.5 rounded-xl border border-iqoo-border/70 text-white text-[11px] leading-relaxed">
+                        <span class="text-iqoo-amber font-mono-code text-[8.5px] font-bold block mb-0.5">QUESTION SCANNED • JEE PHYSICS</span>
+                        A 2kg block slides down a 30&deg; incline (&mu;=0.2).<br>
+                        <b class="text-iqoo-cyan">EdgeTutor asks:</b> <i>"What should we identify first to find acceleration?"</i>
+                    </div>
+                    <div class="space-y-1.5 text-[10.5px]">
+                        <button onclick="handleDashboardSocraticChoice('A')" id="btn-dash-choice-A" class="w-full text-left p-2 rounded-lg bg-iqoo-card hover:bg-iqoo-cardHover border border-iqoo-border flex items-center justify-between transition">
+                            <span>A. Forces acting on block (Free Body Diagram)</span>
+                            <span class="text-[8px] font-mono-code text-gray-400">Select</span>
+                        </button>
+                        <button onclick="handleDashboardSocraticChoice('B')" id="btn-dash-choice-B" class="w-full text-left p-2 rounded-lg bg-iqoo-card hover:bg-iqoo-cardHover border border-iqoo-border flex items-center justify-between transition">
+                            <span>B. Final velocity using kinematics directly</span>
+                            <span class="text-[8px] font-mono-code text-gray-400">Select</span>
+                        </button>
+                        <button onclick="handleDashboardSocraticChoice('C')" id="btn-dash-choice-C" class="w-full text-left p-2 rounded-lg bg-iqoo-card hover:bg-iqoo-cardHover border border-iqoo-border flex items-center justify-between transition">
+                            <span>C. Distance traveled along the incline</span>
+                            <span class="text-[8px] font-mono-code text-gray-400">Select</span>
+                        </button>
+                    </div>
+                    <div id="dashSocraticFeedback" class="hidden p-2.5 rounded-lg text-[10px] font-medium leading-relaxed"></div>
+                </div>
+
                 <!-- Demo Questions Ready to Solve -->
                 <div class="space-y-2 pb-6">
                     <span class="text-[10px] font-mono-code font-bold text-gray-400 uppercase tracking-wider block">
@@ -411,15 +445,15 @@
                     </div>
                 </div>
 
-                <!-- Mode Switcher: Step Breakdown vs Interactive Socratic Dialogue -->
+                <!-- Mode Switcher: Interactive Socratic Dialogue (DEFAULT) vs Step Breakdown -->
                 <div class="flex items-center p-1 bg-[#0A0C14] border border-iqoo-border rounded-xl text-[10px] font-bold">
-                    <button id="tab-steps-btn" onclick="toggleSolutionMode('steps')" class="flex-1 py-1.5 rounded-lg bg-iqoo-amber text-black flex items-center justify-center gap-1 transition">
-                        <i data-lucide="list-ordered" class="w-3 h-3"></i>
-                        <span>Step-by-Step Breakdown</span>
+                    <button id="tab-socratic-btn" onclick="toggleSolutionMode('socratic')" class="flex-1 py-1.5 rounded-lg bg-iqoo-cyan text-black flex items-center justify-center gap-1 transition font-bold shadow-sm">
+                        <i data-lucide="message-square-quote" class="w-3 h-3 text-black"></i>
+                        <span>Socratic Dialogue (Interactive)</span>
                     </button>
-                    <button id="tab-socratic-btn" onclick="toggleSolutionMode('socratic')" class="flex-1 py-1.5 rounded-lg text-gray-400 hover:text-white flex items-center justify-center gap-1 transition">
-                        <i data-lucide="message-square-quote" class="w-3 h-3 text-iqoo-cyan"></i>
-                        <span>Socratic Dialogue</span>
+                    <button id="tab-steps-btn" onclick="toggleSolutionMode('steps')" class="flex-1 py-1.5 rounded-lg text-gray-400 hover:text-white flex items-center justify-center gap-1 transition font-medium">
+                        <i data-lucide="list-ordered" class="w-3 h-3"></i>
+                        <span>Step Breakdown</span>
                     </button>
                 </div>
 
@@ -434,15 +468,15 @@
                 </div>
 
                 <!-- Tab 1: Streaming Socratic Steps Content Box -->
-                <div id="solutionStepsBox" class="bg-[#0F1118] border border-iqoo-border rounded-2xl p-3.5 shadow-xl">
+                <div id="solutionStepsBox" class="hidden bg-[#0F1118] border border-iqoo-border rounded-2xl p-3.5 shadow-xl">
                     <div id="streamOutput" class="text-xs text-gray-200 leading-relaxed space-y-2.5">
                         <!-- Streamed content -->
                     </div>
                     <div id="streamCursor" class="inline-block w-2 h-4 bg-iqoo-amber animate-pulse mt-2"></div>
                 </div>
 
-                <!-- Tab 2: Interactive Socratic Teacher-Student Dialogue Box -->
-                <div id="solutionSocraticBox" class="hidden bg-[#0B0D14] border border-iqoo-border rounded-2xl p-3 shadow-xl space-y-2.5 max-h-[360px] overflow-y-auto">
+                <!-- Tab 2: Interactive Socratic Teacher-Student Dialogue Box (DEFAULT ACTIVE) -->
+                <div id="solutionSocraticBox" class="bg-[#0B0D14] border border-iqoo-border rounded-2xl p-3 shadow-xl space-y-2.5 max-h-[360px] overflow-y-auto">
                     <!-- Student bubble -->
                     <div class="flex items-start gap-2 max-w-[88%]">
                         <div class="w-5 h-5 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shrink-0 mt-0.5">S</div>
@@ -714,6 +748,26 @@
             } else {
                 fb.className = "p-2 rounded-lg text-[10px] font-medium leading-relaxed bg-amber-950/60 border border-iqoo-amber/60 text-amber-300";
                 fb.innerHTML = "⚠️ <i>Try again:</i> We cannot find velocity or distance until we know acceleration from the acting forces (Gravity & Friction). Select <b>A</b>.";
+            }
+            triggerKaTeX(fb);
+        }
+
+        function handleDashboardSocraticChoice(choice) {
+            const fb = document.getElementById('dashSocraticFeedback');
+            const bA = document.getElementById('btn-dash-choice-A');
+            const bB = document.getElementById('btn-dash-choice-B');
+            const bC = document.getElementById('btn-dash-choice-C');
+            if (!fb) return;
+            fb.classList.remove('hidden');
+            if (choice === 'A') {
+                if (bA) bA.className = "w-full text-left p-2 rounded-lg bg-green-950/70 border border-iqoo-green text-white font-bold flex items-center justify-between";
+                if (bB) bB.className = "w-full text-left p-2 rounded-lg bg-iqoo-card/50 border border-iqoo-border text-gray-500 flex items-center justify-between";
+                if (bC) bC.className = "w-full text-left p-2 rounded-lg bg-iqoo-card/50 border border-iqoo-border text-gray-500 flex items-center justify-between";
+                fb.className = "p-2 rounded-lg text-[10px] font-medium leading-relaxed bg-green-950/60 border border-iqoo-green/60 text-green-300";
+                fb.innerHTML = "✅ <b>Correct!</b> In mechanics, net acceleration along the ramp is governed by $\\Sigma F = ma$. Always isolate components with a Free Body Diagram first!";
+            } else {
+                fb.className = "p-2 rounded-lg text-[10px] font-medium leading-relaxed bg-amber-950/60 border border-iqoo-amber/60 text-amber-300";
+                fb.innerHTML = "⚠️ <i>Socratic nudge:</i> Kinematics and distance equations require acceleration first. Solve net force components (Gravity & Friction) first. Select <b>A</b>.";
             }
             triggerKaTeX(fb);
         }
