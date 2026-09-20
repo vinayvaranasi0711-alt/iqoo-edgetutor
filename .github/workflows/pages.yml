@@ -21,11 +21,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare site files for all Pages configurations
+        run: |
+          mkdir -p dist_pages/docs
+          cp docs/index.html dist_pages/index.html
+          cp docs/.nojekyll dist_pages/.nojekyll
+          cp docs/index.html dist_pages/docs/index.html
+          cp docs/.nojekyll dist_pages/docs/.nojekyll
+
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./dist_pages
           keep_files: false
           force_orphan: true
 
@@ -37,7 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         continue-on-error: true
         with:
-          path: './docs'
+          path: './dist_pages'
 
       - name: Deploy to GitHub Pages
         id: deployment
