@@ -76,7 +76,7 @@
             <div>
                 <div class="flex items-center gap-2 flex-wrap">
                     <h1 class="font-black text-white tracking-tight text-lg sm:text-xl">iQOO EdgeTutor</h1>
-                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-iqoo-amber/15 text-iqoo-amber font-mono-code font-bold border border-iqoo-amber/40">CBSE 9-10 & JEE ALL SYLLABUS</span>
+                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-iqoo-amber/15 text-iqoo-amber font-mono-code font-bold border border-iqoo-amber/40">CBSE 9-10 & JEE • Core Curriculum Vault</span>
                 </div>
                 <p class="text-xs text-gray-400 font-medium">100% On-Device AI • Direct Live Camera Scanner • Offline NCERT Vault</p>
             </div>
@@ -155,34 +155,60 @@
             <!-- ================= VIEW 1: DASHBOARD ================= -->
             <section id="viewDashboard" class="flex-1 flex flex-col p-4 overflow-y-auto space-y-4">
                 
-                <!-- Supercar Hardware Telemetry Card -->
+                <!-- Supercar Hardware Architecture Target Card -->
                 <div class="relative rounded-2xl bg-gradient-to-br from-[#12141F] via-iqoo-card to-[#0C0E14] p-3.5 border border-iqoo-border hover:border-iqoo-amber/50 transition shadow-lg overflow-hidden">
-                    <div class="flex items-center justify-between mb-2.5">
+                    <div class="flex items-center justify-between mb-2">
                         <div class="flex items-center space-x-2">
-                            <span class="flex h-2.5 w-2.5 relative">
+                            <span class="flex h-2 w-2 relative">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-iqoo-amber opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-iqoo-amber"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-iqoo-amber"></span>
                             </span>
-                            <span class="text-xs font-mono-code font-bold text-white tracking-wider">SNAPDRAGON 8 GEN 3</span>
+                            <span class="text-[11px] font-mono-code font-bold text-white tracking-wider">TARGET CHIP: SNAPDRAGON 8 GEN 3</span>
                         </div>
                         <span class="text-[9px] font-mono-code font-extrabold px-2 py-0.5 rounded-full bg-iqoo-green/20 text-iqoo-green border border-iqoo-green/40 flex items-center gap-1">
                             <i data-lucide="shield-check" class="w-3 h-3"></i>
-                            0 KB OFFLINE
+                            AIR-GAPPED • 0 KB
                         </span>
                     </div>
 
                     <div class="grid grid-cols-3 gap-2 pt-1 border-t border-iqoo-border/70 text-center font-mono-code">
                         <div class="bg-iqoo-black/50 p-1.5 rounded-xl border border-iqoo-border/50">
-                            <span class="text-[8px] text-gray-400 block uppercase">NPU CORE</span>
-                            <span class="text-xs font-bold text-iqoo-cyan">Hexagon HTP</span>
+                            <span class="text-[8px] text-gray-400 block uppercase">NPU TARGET</span>
+                            <span class="text-[11px] font-bold text-iqoo-cyan">Hexagon INT4</span>
                         </div>
                         <div class="bg-iqoo-black/50 p-1.5 rounded-xl border border-iqoo-border/50">
-                            <span class="text-[8px] text-gray-400 block uppercase">RAM SPEED</span>
-                            <span class="text-xs font-bold text-iqoo-amber">77 GB/s</span>
+                            <span class="text-[8px] text-gray-400 block uppercase">MEMORY BUS</span>
+                            <span class="text-[11px] font-bold text-iqoo-amber">77 GB/s LPDDR5X</span>
                         </div>
                         <div class="bg-iqoo-black/50 p-1.5 rounded-xl border border-iqoo-border/50">
-                            <span class="text-[8px] text-gray-400 block uppercase">POWER</span>
-                            <span class="text-xs font-bold text-iqoo-green">0.8W Cool</span>
+                            <span class="text-[8px] text-gray-400 block uppercase">INFERENCE</span>
+                            <span class="text-[11px] font-bold text-iqoo-green">100% On-Device</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 0 KB Air-Gapped Architectural Flow -->
+                <div class="bg-[#0C0E16] border border-iqoo-border rounded-xl p-2.5 text-[10px] font-mono-code space-y-1.5">
+                    <div class="flex items-center justify-between text-gray-400 font-bold text-[8.5px] uppercase tracking-wider">
+                        <span>LOCAL PROCESSING PIPELINE</span>
+                        <span class="text-iqoo-green">0 KB CLOUD DATA</span>
+                    </div>
+                    <div class="grid grid-cols-4 gap-1 text-center">
+                        <div class="bg-[#121520] p-1.5 rounded-lg border border-iqoo-border/60">
+                            <span class="text-iqoo-amber block font-bold text-[9px]">1. CAMERA</span>
+                            <span class="text-[7.5px] text-gray-400">Offline Scan</span>
+                        </div>
+                        <div class="bg-[#121520] p-1.5 rounded-lg border border-iqoo-border/60">
+                            <span class="text-iqoo-cyan block font-bold text-[9px]">2. OCR</span>
+                            <span class="text-[7.5px] text-gray-400">ML Kit Local</span>
+                        </div>
+                        <div class="bg-[#121520] p-1.5 rounded-lg border border-iqoo-border/60">
+                            <span class="text-iqoo-purple block font-bold text-[9px]">3. VAULT</span>
+                            <span class="text-[7.5px] text-gray-400">NCERT RAG</span>
+                        </div>
+                        <div class="bg-[#121520] p-1.5 rounded-lg border border-iqoo-border/60">
+                            <span class="text-iqoo-green block font-bold text-[9px]">4. NPU</span>
+                            <span class="text-[7.5px] text-gray-400">Socratic AI</span>
                         </div>
                     </div>
                 </div>
@@ -364,18 +390,30 @@
                     </div>
                 </div>
 
-                <!-- Hardware Performance Pill -->
+                <!-- Hardware Performance Target Pill -->
                 <div class="bg-gradient-to-r from-[#12151F] to-[#181B26] border border-iqoo-border rounded-xl p-2.5 flex items-center justify-between text-xs font-mono-code">
                     <div class="flex items-center gap-1.5">
                         <i data-lucide="zap" class="w-3.5 h-3.5 text-iqoo-amber fill-iqoo-amber"></i>
-                        <span id="liveTokSec" class="text-iqoo-amber font-bold">24.2 tok/s</span>
+                        <span id="liveTokSec" class="text-iqoo-amber font-bold">TARGET: 24+ tok/s</span>
                     </div>
-                    <div class="text-gray-400 text-[11px]">
-                        NPU: <span class="text-iqoo-cyan font-bold">Hexagon HTP</span>
+                    <div class="text-gray-400 text-[10px]">
+                        NPU TARGET: <span class="text-iqoo-cyan font-bold">Hexagon INT4</span>
                     </div>
-                    <div class="text-iqoo-green font-bold text-[11px] flex items-center gap-1">
-                        0 KB DATA
+                    <div class="text-iqoo-green font-bold text-[10px] flex items-center gap-1">
+                        AIR-GAPPED • 0 KB
                     </div>
+                </div>
+
+                <!-- Mode Switcher: Step Breakdown vs Interactive Socratic Dialogue -->
+                <div class="flex items-center p-1 bg-[#0A0C14] border border-iqoo-border rounded-xl text-[10px] font-bold">
+                    <button id="tab-steps-btn" onclick="toggleSolutionMode('steps')" class="flex-1 py-1.5 rounded-lg bg-iqoo-amber text-black flex items-center justify-center gap-1 transition">
+                        <i data-lucide="list-ordered" class="w-3 h-3"></i>
+                        <span>Step-by-Step Breakdown</span>
+                    </button>
+                    <button id="tab-socratic-btn" onclick="toggleSolutionMode('socratic')" class="flex-1 py-1.5 rounded-lg text-gray-400 hover:text-white flex items-center justify-center gap-1 transition">
+                        <i data-lucide="message-square-quote" class="w-3 h-3 text-iqoo-cyan"></i>
+                        <span>Socratic Dialogue</span>
+                    </button>
                 </div>
 
                 <!-- Question Snippet -->
@@ -388,12 +426,63 @@
                     </p>
                 </div>
 
-                <!-- Streaming Socratic Content Box -->
-                <div class="bg-[#0F1118] border border-iqoo-border rounded-2xl p-3.5 shadow-xl">
+                <!-- Tab 1: Streaming Socratic Steps Content Box -->
+                <div id="solutionStepsBox" class="bg-[#0F1118] border border-iqoo-border rounded-2xl p-3.5 shadow-xl">
                     <div id="streamOutput" class="text-xs text-gray-200 leading-relaxed space-y-2.5">
                         <!-- Streamed content -->
                     </div>
                     <div id="streamCursor" class="inline-block w-2 h-4 bg-iqoo-amber animate-pulse mt-2"></div>
+                </div>
+
+                <!-- Tab 2: Interactive Socratic Teacher-Student Dialogue Box -->
+                <div id="solutionSocraticBox" class="hidden bg-[#0B0D14] border border-iqoo-border rounded-2xl p-3 shadow-xl space-y-2.5 max-h-[360px] overflow-y-auto">
+                    <!-- Student bubble -->
+                    <div class="flex items-start gap-2 max-w-[88%]">
+                        <div class="w-5 h-5 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shrink-0 mt-0.5">S</div>
+                        <div class="bg-blue-950/60 border border-blue-800/60 rounded-xl rounded-tl-none p-2.5 text-[11px] text-gray-200">
+                            I don't know where to start. Which formula should I use for this problem?
+                        </div>
+                    </div>
+                    <!-- EdgeTutor Mentor bubble -->
+                    <div class="flex items-start gap-2 max-w-[92%] ml-auto flex-row-reverse">
+                        <div class="w-5 h-5 rounded-full bg-iqoo-amber text-black text-[9px] font-black flex items-center justify-center shrink-0 mt-0.5">iQ</div>
+                        <div class="bg-iqoo-card border border-iqoo-amber/40 rounded-xl rounded-tr-none p-2.5 text-[11px] text-white">
+                            <span class="text-[8px] font-mono-code font-bold text-iqoo-amber block mb-0.5">SOCRATIC GUIDE</span>
+                            Before picking a formula, let's identify what the textbook gave us. What quantities do you already know?
+                        </div>
+                    </div>
+                    <!-- Student bubble -->
+                    <div class="flex items-start gap-2 max-w-[88%]">
+                        <div class="w-5 h-5 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shrink-0 mt-0.5">S</div>
+                        <div class="bg-blue-950/60 border border-blue-800/60 rounded-xl rounded-tl-none p-2.5 text-[11px] text-gray-200">
+                            Given: Mass $m = 2\text{ kg}$, angle $\theta = 30^\circ$, kinetic friction $\mu_k = 0.2$.
+                        </div>
+                    </div>
+                    <!-- EdgeTutor Mentor bubble -->
+                    <div class="flex items-start gap-2 max-w-[92%] ml-auto flex-row-reverse">
+                        <div class="w-5 h-5 rounded-full bg-iqoo-amber text-black text-[9px] font-black flex items-center justify-center shrink-0 mt-0.5">iQ</div>
+                        <div class="bg-iqoo-card border border-iqoo-amber/40 rounded-xl rounded-tr-none p-2.5 text-[11px] text-white">
+                            <span class="text-[8px] font-mono-code font-bold text-iqoo-amber block mb-0.5">SOCRATIC GUIDE</span>
+                            Spot on! Now think about the forces. Which component of gravity pulls the block <i>down</i> the slope?
+                        </div>
+                    </div>
+                    <!-- Student bubble -->
+                    <div class="flex items-start gap-2 max-w-[88%]">
+                        <div class="w-5 h-5 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shrink-0 mt-0.5">S</div>
+                        <div class="bg-blue-950/60 border border-blue-800/60 rounded-xl rounded-tl-none p-2.5 text-[11px] text-gray-200">
+                            The parallel component along the incline: $mg \sin\theta$.
+                        </div>
+                    </div>
+                    <!-- EdgeTutor Mentor bubble -->
+                    <div class="flex items-start gap-2 max-w-[92%] ml-auto flex-row-reverse">
+                        <div class="w-5 h-5 rounded-full bg-iqoo-amber text-black text-[9px] font-black flex items-center justify-center shrink-0 mt-0.5">iQ</div>
+                        <div class="bg-iqoo-card border border-iqoo-green/40 rounded-xl rounded-tr-none p-2.5 text-[11px] text-white">
+                            <span class="text-[8px] font-mono-code font-bold text-iqoo-green block mb-0.5">CONCEPT UNLOCKED</span>
+                            Brilliant! And kinetic friction opposes motion with $f_k = \mu_k mg \cos\theta$.<br>
+                            Now combine them into Newton's 2nd Law: $ma = mg\sin 30^\circ - \mu_k mg\cos 30^\circ$.<br>
+                            Notice mass cancels out: $a = g(\sin 30^\circ - 0.2\cos 30^\circ) = 3.20\text{ m/s}^2$!
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Socratic Drill-Downs -->
@@ -557,6 +646,27 @@
 
             lucide.createIcons();
             triggerKaTeX();
+        }
+
+        function toggleSolutionMode(mode) {
+            const stepsBox = document.getElementById('solutionStepsBox');
+            const socraticBox = document.getElementById('solutionSocraticBox');
+            const stepsBtn = document.getElementById('tab-steps-btn');
+            const socraticBtn = document.getElementById('tab-socratic-btn');
+
+            if (mode === 'steps') {
+                if (stepsBox) stepsBox.classList.remove('hidden');
+                if (socraticBox) socraticBox.classList.add('hidden');
+                if (stepsBtn) stepsBtn.className = "flex-1 py-1.5 rounded-lg bg-iqoo-amber text-black flex items-center justify-center gap-1 transition font-bold";
+                if (socraticBtn) socraticBtn.className = "flex-1 py-1.5 rounded-lg text-gray-400 hover:text-white flex items-center justify-center gap-1 transition font-medium";
+            } else {
+                if (stepsBox) stepsBox.classList.add('hidden');
+                if (socraticBox) socraticBox.classList.remove('hidden');
+                if (stepsBtn) stepsBtn.className = "flex-1 py-1.5 rounded-lg text-gray-400 hover:text-white flex items-center justify-center gap-1 transition font-medium";
+                if (socraticBtn) socraticBtn.className = "flex-1 py-1.5 rounded-lg bg-iqoo-cyan text-black flex items-center justify-center gap-1 transition font-bold";
+            }
+            triggerKaTeX();
+            lucide.createIcons();
         }
 
         // ================= REAL DIRECT WEBCAM ACCESS =================
