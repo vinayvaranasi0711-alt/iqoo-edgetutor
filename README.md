@@ -15,15 +15,17 @@
 
 ## 🎯 The Vision & Hackathon Concept
 
-* **The Problem:** Over 300 million students in Tier-2/3 cities, small towns, and rural college hostels struggle with erratic, slow, or expensive internet. When studying for competitive exams (JEE, NEET, CBSE) late at night or during train commutes, cloud-based AI tools (like ChatGPT) fail, lag, or demand costly subscriptions.
-* **The Concept:** An educational AI tutor that runs **entirely offline on the smartphone’s local silicon** using Small Language Models (SLMs) and on-device OCR.
-* **How It Uses iQOO Hardware:** iQOO smartphones package flagship **Snapdragon 8-series and 7-series processors**, **8GB–16GB high-bandwidth LPDDR5X RAM**, and **massive 6000mm² vapor chambers** at accessible prices. By offloading inference to the Snapdragon Hexagon NPU, students can snap any textbook formula and get step-by-step Socratic explanations without a single byte of internet.
-* **The "Airplane Mode" Wow Factor:** During live demonstrations, put the phone into Airplane Mode, snap a photo of an advanced physics problem, and watch the local AI solve and explain the concept in real time at **24+ tokens per second**.
-* **Why It Helps iQOO:** Proves that iQOO’s benchmark-shattering RAM bandwidth and AnTuTu scores aren’t just for mobile gaming—they power next-generation edge AI productivity that budget competitors (e.g. Exynos/Helio devices) cannot run.
+* **The Problem:** Students preparing for board exams (CBSE 9–10) and competitive tests (JEE) face three major barriers:
+  1. **Connectivity Drops:** Cloud-dependent AI apps (like ChatGPT) fail or freeze in college hostels, small towns, rural areas, or during train commutes.
+  2. **The Distraction Trap:** Opening a browser or online app to clear a doubt exposes students to social notifications (Instagram, WhatsApp, YouTube), shattering deep focus.
+  3. **Answer-Dumping vs. True Learning:** Most AI tools simply vomit the final answer, encouraging passive copying rather than teaching the derivation.
+* **The Concept:** An educational AI tutor that runs **entirely offline on the smartphone’s local silicon**, utilizing on-device OCR, an embedded NCERT curriculum vault, and Small Language Models (SLMs) to deliver interactive Socratic guidance.
+* **How It Uses iQOO Hardware:** iQOO smartphones feature flagship **Snapdragon processors**, **high-bandwidth LPDDR5X RAM (up to 77 GB/s)**, and **large vapor chamber cooling**. These capabilities provide the ideal platform for running local, memory-bandwidth-intensive edge AI inference without thermal throttling.
+* **The "Airplane Mode" Live Demonstration:** Put the smartphone into physical Airplane Mode, snap a photo of a textbook problem, and watch the local pipeline parse the question and guide the student through step-by-step reasoning with **zero internet connectivity**.
 
 ---
 
-## 🏗️ Technical Architecture
+## 🏗️ Technical Architecture & Pipeline
 
 ```
                        ┌─────────────────────────────────────────────────┐
@@ -41,49 +43,65 @@
                                                │ Extracted Formula / Text
                                                ▼
  ┌─────────────────────────┐   ┌─────────────────────────────────────────┐
- │   NCERT / CBSE Corpus   │   │     Stage 2: On-Device Semantic RAG     │
- │  Classes 9-12 (PCM/PCB) │──▶│   - In-memory structured knowledge base │
- │  Pre-indexed curriculum │   │   - Grounds reasoning in CBSE standards │
+ │ CBSE 9-10 & JEE 11-12   │   │     Stage 2: On-Device Semantic RAG     │
+ │ Core Curriculum Vault   │──▶│   - In-memory structured knowledge base │
+ │ Pre-indexed JSON Store  │   │   - Grounds reasoning in NCERT syllabus │
  └─────────────────────────┘   └───────────────────┬─────────────────────┘
                                                    │ Grounded Context
                                                    ▼
                        ┌─────────────────────────────────────────────────┐
                        │    Stage 3: On-Device SLM Inference Engine      │
-                       │   - Model: Gemma 2B / Phi-3 INT4 Quantized      │
-                       │   - Engine: Qualcomm Hexagon HTP / MediaPipe    │
-                       │   - Memory Bandwidth: 77 GB/s (LPDDR5X)         │
+                       │   - Model Target: Gemma 2B / Phi-3.5 INT4       │
+                       │   - Target Runtime: Qualcomm Hexagon NPU / QNN  │
+                       │   - Memory Bus: LPDDR5X High-Bandwidth Pipeline │
                        └───────────────────────┬─────────────────────────┘
-                                               │ Streaming Output (~24 tok/s)
+                                               │ Guided Reasoning Stream
                                                ▼
                        ┌─────────────────────────────────────────────────┐
                        │           Interactive Socratic UI               │
+                       │   - Step-by-Step Breakdown & Socratic Dialogue  │
                        │   - KaTeX Math Formula Rendering                │
-                       │   - Hardware Telemetry HUD (Live tok/s, NPU)    │
-                       │   - Concept Quiz & "Explain Why?" Drilldown     │
+                       │   - Real-time Airplane Mode / Air-Gapped HUD    │
                        └─────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🔒 Strict Offline Architecture
+## 📊 Implementation Status & Validation Matrix
 
-In `android/app/src/main/AndroidManifest.xml`, **`android.permission.INTERNET` is deliberately omitted**. This guarantees:
-1. **Zero Data Leaks:** Complete student privacy—no textbook photos or questions ever leave the device.
-2. **Deterministic Latency:** Zero network jitter or cloud server outages.
-3. **Auditability:** Any judge or reviewer inspecting the APK manifest can verify zero network permissions.
+To maintain transparent engineering credibility, here is the exact separation between our **working demonstrated prototype** and our **target production hardware deployment**:
+
+| Component | Current Demonstrated Prototype | Target Production Deployment | Validation Method |
+| :--- | :--- | :--- | :--- |
+| **Network Status** | **0 KB (Air-Gapped)** | **0 KB (Air-Gapped)** | `android.permission.INTERNET` omitted from Manifest; tested in Airplane Mode |
+| **Camera & Vision** | CameraX + Google ML Kit (Offline) | CameraX + Google ML Kit (Offline) | Functional on device & web simulator |
+| **Curriculum Vault** | CBSE 9–10 & JEE 11–12 Core Vault (`ncert_knowledge_base.json`) | Complete K-12 Vector Embedding Store | Local JSON asset parsed in-memory |
+| **SLM Inference** | Quantized Socratic Pipeline Emulator | Qualcomm AI Engine Direct (QNN) / MediaPipe | On-device pipeline & interactive web runner |
+| **Target Silicon** | Android 8.0+ (API 26+) Baseline | Snapdragon 8 Gen 3 / Dimensity 9300 | Android Gradle build + Compose UI |
+| **Inference Speed** | Interactive Prototype Stream | **Target: $\ge$ 24 tokens/sec** | Hardware validation pending on target testbench |
+| **Pedagogical Flow** | Step-by-Step + Interactive Socratic Dialogue | Multi-Turn Adaptive Voice Socratic Dialog | Evaluated on physics/math benchmark doubts |
 
 ---
 
-## ⚡ The Hardware Moat: iQOO vs. Budget Rivals
+## 🔒 Strict Air-Gapped Offline Architecture
 
-Because autoregressive token generation is **memory-bandwidth bound** ($T_{\text{max}} \approx B_{\text{mem}} / M_{\text{weights}}$):
+In `android/app/src/main/AndroidManifest.xml`, **`android.permission.INTERNET` is deliberately omitted**. This ensures:
+1. **Verifiable Air-Gap:** Any judge or reviewer inspecting the APK manifest can verify zero network permissions.
+2. **Student Privacy:** Questions and textbook photos are processed in memory and never leave the device.
+3. **Deterministic Performance:** Zero network jitter, zero reliance on external cloud servers, and zero subscription costs.
 
-| Hardware Feature | Budget Competitor (Exynos 850 / Helio G99) | iQOO (Snapdragon 7+ Gen 3 / 8 Gen 2 / 8 Gen 3) | Real-World Impact on Edge AI |
+---
+
+## ⚡ Hardware Synergy: Why iQOO Devices Fit Edge AI
+
+Autoregressive token generation is heavily **memory-bandwidth bound**. Under a simplified theoretical upper-bound model ($T_{\text{max}} \approx B_{\text{mem}} / M_{\text{weights}}$), high memory bandwidth is essential for responsive on-device reasoning:
+
+| Architectural Metric | Standard Mid-Range Silicon | Flagship iQOO Hardware (e.g., iQOO 12 / Neo 9 Pro) | Relevance to On-Device Education AI |
 | :--- | :--- | :--- | :--- |
-| **RAM Bandwidth** | LPDDR4X (~17 – 34 GB/s) | **LPDDR5X (Up to 77 GB/s)** | **2.3x faster token generation.** Delivers 24+ tok/s instead of lagging. |
-| **NPU Acceleration** | None or Basic (~4–10 TOPS) | **Qualcomm Hexagon HTP (Up to 73 TOPS)** | Sub-watt power consumption; draws 80% less battery than CPU/GPU. |
-| **RAM Capacity** | 4GB – 6GB (OOM crashes) | **8GB – 16GB** | Keeps a 2B–4B model resident in memory alongside Android OS. |
-| **Cooling Solution** | Simple graphite sheet | **6000mm² Vapor Chamber** | Sustains 30+ minutes of continuous inference with zero thermal throttling. |
+| **Memory Bandwidth** | LPDDR4X (~17 – 34 GB/s) | **LPDDR5X (Up to 77 GB/s)** | High memory throughput is required to sustain smooth token streaming for Small Language Models. |
+| **Dedicated NPU** | Basic or Shared DSP (~4–10 TOPS) | **Qualcomm Hexagon HTP (Up to 73 TOPS)** | Offloads INT4 quantized matrix multiplication at sub-watt power efficiency. |
+| **RAM Capacity** | 4GB – 6GB | **8GB – 16GB** | Ensures a 2B–3B quantized model fits resident in RAM alongside Android OS and UI. |
+| **Thermal Dissipation** | Basic graphite film | **6000mm² Vapor Chamber System** | Engineered for long gaming sessions, preventing thermal throttling during extended study hours. |
 
 *(Read the complete technical whitepaper in [`submission/HARDWARE_SYNERGY.md`](submission/HARDWARE_SYNERGY.md))*
 
@@ -104,7 +122,7 @@ IQ/
 │       └── src/main/
 │           ├── AndroidManifest.xml      # Zero internet permissions (strict offline)
 │           ├── assets/
-│           │   └── ncert_knowledge_base.json # Pre-loaded NCERT Class 11-12 syllabus
+│           │   └── ncert_knowledge_base.json # Pre-loaded CBSE 9-10 & JEE 11-12 Core Curriculum Vault
 │           ├── java/com/iqoo/edgetutor/
 │           │   ├── MainActivity.kt      # Main edge-to-edge navigation container
 │           │   ├── ui/
@@ -142,10 +160,11 @@ npx serve -l 3000 .
 ```
 **Features in the Web Companion:**
 * Authentic **iQOO 12 phone bezel mockup**.
-* Working **Airplane Mode switch** in the status bar.
-* Optical camera viewfinder with sample JEE questions (Physics, Math, Chemistry).
-* Live **token-by-token streaming** with KaTeX mathematical formulas.
-* Real-time **Hardware Telemetry HUD** reporting `24 tok/s`, `0 KB data`, and `Hexagon HTP NPU Active`.
+* Working **Airplane Mode switch** in the status bar with real-time UI reaction.
+* Optical camera viewfinder with sample CBSE & JEE problems (Physics, Math, Chemistry).
+* Live **Socratic guidance** with KaTeX mathematical formula rendering.
+* **Interactive Socratic Dialogue Mode** simulating student-mentor guiding turns.
+* **Hardware Architecture Target HUD** highlighting `Target: ≥24 tok/s`, `0 KB Air-Gapped`, and `Hexagon INT4 Target`.
 
 ### Option 2: Open and Build Native Android App
 1. Open **Android Studio** (Hedgehog, Iguana, Koala, or Ladybug).

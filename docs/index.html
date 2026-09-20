@@ -473,12 +473,34 @@
                             The parallel component along the incline: $mg \sin\theta$.
                         </div>
                     </div>
+                    <!-- Interactive Reasoning Step Selector (Adaptive Socratic Questioning) -->
+                    <div id="socraticInteractivePrompt" class="p-2.5 rounded-xl bg-[#121522] border border-iqoo-cyan/40 space-y-2">
+                        <span class="text-[9px] font-mono-code font-bold text-iqoo-cyan uppercase tracking-wider block">
+                            🎯 Student Turn: What should we identify first?
+                        </span>
+                        <div class="space-y-1.5 text-[10px]">
+                            <button onclick="handleSocraticChoice('A')" id="btn-soc-choice-A" class="w-full text-left p-2 rounded-lg bg-iqoo-card hover:bg-iqoo-cardHover border border-iqoo-border flex items-center justify-between transition">
+                                <span>A. Forces acting on the block (Free Body Diagram)</span>
+                                <span class="text-[8px] font-mono-code text-gray-400">Select</span>
+                            </button>
+                            <button onclick="handleSocraticChoice('B')" id="btn-soc-choice-B" class="w-full text-left p-2 rounded-lg bg-iqoo-card hover:bg-iqoo-cardHover border border-iqoo-border flex items-center justify-between transition">
+                                <span>B. Final velocity using kinematics directly</span>
+                                <span class="text-[8px] font-mono-code text-gray-400">Select</span>
+                            </button>
+                            <button onclick="handleSocraticChoice('C')" id="btn-soc-choice-C" class="w-full text-left p-2 rounded-lg bg-iqoo-card hover:bg-iqoo-cardHover border border-iqoo-border flex items-center justify-between transition">
+                                <span>C. Distance traveled along the incline</span>
+                                <span class="text-[8px] font-mono-code text-gray-400">Select</span>
+                            </button>
+                        </div>
+                        <div id="socraticFeedback" class="hidden p-2 rounded-lg text-[10px] font-medium leading-relaxed"></div>
+                    </div>
+
                     <!-- EdgeTutor Mentor bubble -->
                     <div class="flex items-start gap-2 max-w-[92%] ml-auto flex-row-reverse">
                         <div class="w-5 h-5 rounded-full bg-iqoo-amber text-black text-[9px] font-black flex items-center justify-center shrink-0 mt-0.5">iQ</div>
                         <div class="bg-iqoo-card border border-iqoo-green/40 rounded-xl rounded-tr-none p-2.5 text-[11px] text-white">
                             <span class="text-[8px] font-mono-code font-bold text-iqoo-green block mb-0.5">CONCEPT UNLOCKED</span>
-                            Brilliant! And kinetic friction opposes motion with $f_k = \mu_k mg \cos\theta$.<br>
+                            Brilliant! Kinetic friction opposes motion with $f_k = \mu_k mg \cos\theta$.<br>
                             Now combine them into Newton's 2nd Law: $ma = mg\sin 30^\circ - \mu_k mg\cos 30^\circ$.<br>
                             Notice mass cancels out: $a = g(\sin 30^\circ - 0.2\cos 30^\circ) = 3.20\text{ m/s}^2$!
                         </div>
@@ -667,6 +689,26 @@
             }
             triggerKaTeX();
             lucide.createIcons();
+        }
+
+        function handleSocraticChoice(choice) {
+            const fb = document.getElementById('socraticFeedback');
+            const bA = document.getElementById('btn-soc-choice-A');
+            const bB = document.getElementById('btn-soc-choice-B');
+            const bC = document.getElementById('btn-soc-choice-C');
+            if (!fb) return;
+            fb.classList.remove('hidden');
+            if (choice === 'A') {
+                if (bA) bA.className = "w-full text-left p-2 rounded-lg bg-green-950/70 border border-iqoo-green text-white font-bold flex items-center justify-between";
+                if (bB) bB.className = "w-full text-left p-2 rounded-lg bg-iqoo-card/50 border border-iqoo-border text-gray-500 flex items-center justify-between";
+                if (bC) bC.className = "w-full text-left p-2 rounded-lg bg-iqoo-card/50 border border-iqoo-border text-gray-500 flex items-center justify-between";
+                fb.className = "p-2 rounded-lg text-[10px] font-medium leading-relaxed bg-green-950/60 border border-iqoo-green/60 text-green-300";
+                fb.innerHTML = "✅ <b>Correct!</b> In dynamics, acceleration is determined by net force $\\Sigma F = ma$. Always isolate forces with a Free Body Diagram first!";
+            } else {
+                fb.className = "p-2 rounded-lg text-[10px] font-medium leading-relaxed bg-amber-950/60 border border-iqoo-amber/60 text-amber-300";
+                fb.innerHTML = "⚠️ <i>Try again:</i> We cannot find velocity or distance until we know acceleration from the acting forces (Gravity & Friction). Select <b>A</b>.";
+            }
+            triggerKaTeX(fb);
         }
 
         // ================= REAL DIRECT WEBCAM ACCESS =================

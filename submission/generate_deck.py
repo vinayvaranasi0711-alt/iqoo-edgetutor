@@ -39,7 +39,7 @@ def create_deck():
         card.line.width = Pt(1.5)
         return card
 
-    def add_header(slide, title_text, category_text="iQOO EDGETUTOR • 100% ON-DEVICE AI"):
+    def add_header(slide, title_text, category_text="iQOO EDGETUTOR • ON-DEVICE EDUCATION AI"):
         cat_box = slide.shapes.add_textbox(Inches(0.8), Inches(0.4), Inches(11.7), Inches(0.35))
         tf_c = cat_box.text_frame
         tf_c.word_wrap = True
@@ -59,19 +59,17 @@ def create_deck():
         p_t.font.color.rgb = WHITE
 
     # ==========================================
-    # SLIDE 1: COVER / TITLE
+    # SLIDE 1: THE HOOK (ZERO INTERNET AI TUTOR)
     # ==========================================
     s1 = prs.slides.add_slide(blank_layout)
     set_slide_background(s1)
 
-    # Accent decorative top bar
     bar = s1.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.8), Inches(0.7), Inches(2.2), Inches(0.08))
     bar.fill.solid()
     bar.fill.fore_color.rgb = IQOO_AMBER
     bar.line.fill.background()
 
-    # Main Title Box
-    tbox = s1.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(2.2))
+    tbox = s1.shapes.add_textbox(Inches(0.8), Inches(0.9), Inches(11.7), Inches(2.2))
     tf = tbox.text_frame
     tf.word_wrap = True
 
@@ -82,63 +80,62 @@ def create_deck():
     p0.font.color.rgb = WHITE
 
     p1 = tf.add_paragraph()
-    p1.text = "100% Offline, On-Device AI Educational Mentor in Airplane Mode"
+    p1.text = "What If Your Smartphone Could Tutor You with Zero Internet?"
     p1.font.size = Pt(22)
     p1.font.bold = True
     p1.font.color.rgb = IQOO_AMBER
     p1.space_before = Pt(8)
 
     p2 = tf.add_paragraph()
-    p2.text = "Turning iQOO Gaming Silicon into India's Most Powerful Distraction-Free AI Study Station"
+    p2.text = "An On-Device AI Mentor for CBSE 9-10 & JEE Problem Solving in 100% Airplane Mode"
     p2.font.size = Pt(14)
     p2.font.color.rgb = GRAY_TEXT
     p2.space_before = Pt(6)
 
-    # 3 Key Highlights Cards
-    card1 = add_card(s1, Inches(0.8), Inches(3.5), Inches(3.6), Inches(2.4))
-    tf1 = card1.text_frame
+    # 3 Pipeline Step Cards
+    c1 = add_card(s1, Inches(0.8), Inches(3.4), Inches(3.6), Inches(2.5))
+    tf1 = c1.text_frame
     tf1.word_wrap = True
     p = tf1.paragraphs[0]
-    p.text = "✈️ Pure Airplane Mode"
+    p.text = "📷 1. Offline Camera Scan"
     p.font.size = Pt(16)
     p.font.bold = True
-    p.font.color.rgb = IQOO_GREEN
-    p_b = tf1.add_paragraph()
-    p_b.text = "• Zero internet permission (0 KB data)\n• No Instagram / WhatsApp notifications\n• 100% private: Doubts never leave phone"
-    p_b.font.size = Pt(12)
-    p_b.font.color.rgb = WHITE
-    p_b.space_before = Pt(8)
+    p.font.color.rgb = IQOO_ORANGE
+    pb = tf1.add_paragraph()
+    pb.text = "• Point camera at printed textbook problem\n• Local Google ML Kit text extraction\n• Zero internet permission (0 KB Air-Gapped)"
+    pb.font.size = Pt(12)
+    pb.font.color.rgb = WHITE
+    pb.space_before = Pt(8)
 
-    card2 = add_card(s1, Inches(4.8), Inches(3.5), Inches(3.6), Inches(2.4))
-    tf2 = card2.text_frame
+    c2 = add_card(s1, Inches(4.8), Inches(3.4), Inches(3.6), Inches(2.5))
+    tf2 = c2.text_frame
     tf2.word_wrap = True
     p = tf2.paragraphs[0]
-    p.text = "⚡ Sub-Second Speed"
-    p.font.size = Pt(16)
-    p.font.bold = True
-    p.font.color.rgb = IQOO_AMBER
-    p_b = tf2.add_paragraph()
-    p_b.text = "• Snapdragon Hexagon NPU offload\n• 77 GB/s LPDDR5X RAM bandwidth\n• Socratic steps in < 800ms vs 8s cloud"
-    p_b.font.size = Pt(12)
-    p_b.font.color.rgb = WHITE
-    p_b.space_before = Pt(8)
-
-    card3 = add_card(s1, Inches(8.8), Inches(3.5), Inches(3.6), Inches(2.4))
-    tf3 = card3.text_frame
-    tf3.word_wrap = True
-    p = tf3.paragraphs[0]
-    p.text = "📚 CBSE & JEE Aligned"
+    p.text = "🧠 2. On-Device Reasoning"
     p.font.size = Pt(16)
     p.font.bold = True
     p.font.color.rgb = IQOO_CYAN
-    p_b = tf3.add_paragraph()
-    p_b.text = "• Class 9-10 CBSE & Class 11-12 JEE\n• Pre-indexed NCERT offline knowledge vault\n• Free forever for students (₹0 cloud bills)"
-    p_b.font.size = Pt(12)
-    p_b.font.color.rgb = WHITE
-    p_b.space_before = Pt(8)
+    pb = tf2.add_paragraph()
+    pb.text = "• Embedded NCERT curriculum vault\n• Small Language Model (SLM) reasoning\n• Grounded in CBSE standards (No hallucinations)"
+    pb.font.size = Pt(12)
+    pb.font.color.rgb = WHITE
+    pb.space_before = Pt(8)
 
-    # Footer presenter box
-    fbox = s1.shapes.add_textbox(Inches(0.8), Inches(6.2), Inches(11.7), Inches(0.8))
+    c3 = add_card(s1, Inches(8.8), Inches(3.4), Inches(3.6), Inches(2.5))
+    tf3 = c3.text_frame
+    tf3.word_wrap = True
+    p = tf3.paragraphs[0]
+    p.text = "💬 3. Socratic Mentorship"
+    p.font.size = Pt(16)
+    p.font.bold = True
+    p.font.color.rgb = IQOO_GREEN
+    pb = tf3.add_paragraph()
+    pb.text = "• Teaches derivation step-by-step\n• Asks probing questions, doesn't dump answers\n• KaTeX formatted math symbols & formulas"
+    pb.font.size = Pt(12)
+    pb.font.color.rgb = WHITE
+    pb.space_before = Pt(8)
+
+    fbox = s1.shapes.add_textbox(Inches(0.8), Inches(6.25), Inches(11.7), Inches(0.8))
     tff = fbox.text_frame
     pf = tff.paragraphs[0]
     pf.text = "👤 Presenter: VARANASI SAI VINAY   |   🔗 GitHub: github.com/vinayvaranasi0711-alt/iqoo-edgetutor"
@@ -147,19 +144,19 @@ def create_deck():
     pf.font.color.rgb = GRAY_TEXT
 
     # ==========================================
-    # SLIDE 2: THE PROBLEM
+    # SLIDE 2: THE REAL PROBLEM
     # ==========================================
     s2 = prs.slides.add_slide(blank_layout)
     set_slide_background(s2)
-    add_header(s2, "The Real-World Problem: Why Online EdTech Fails Students", "01 / PROBLEM STATEMENT")
+    add_header(s2, "The Real Problem: Why Online EdTech Fails Students", "01 / PROBLEM STATEMENT")
 
-    p_cards = [
-        ("📱 The Distraction Trap", "When students go online to clear doubts, social notifications (Instagram, WhatsApp, YouTube) shatter their concentration. Deep study requires isolation, but cloud AI demands an active internet connection.", ACCENT_RED),
-        ("📶 Connectivity & Coverage Barrier", "Over 300M students in Tier-2/3 cities, rural villages, hostel rooms, or train commutes face unreliable or zero internet. During exams or late-night study, cloud apps completely freeze or fail.", IQOO_ORANGE),
-        ("💰 Prohibitive Server & Subscription Costs", "Cloud AI services charge ₹1,000–₹2,000/month or incur massive API token bills for manufacturers. EdTech companies cannot sustain free unlimited AI queries for millions of students without bleeding money.", IQOO_AMBER)
+    prob_cards = [
+        ("📶 1. The Connectivity Drop", "Cloud-dependent AI fails in college hostels, remote towns, or daily train commutes. When students study late at night and connection drops, learning halts completely.", IQOO_ORANGE),
+        ("📱 2. The Distraction Trap", "Opening a browser to check a doubt exposes students to social notifications (Instagram, WhatsApp, YouTube). Deep study requires focused isolation, but cloud AI demands active connectivity.", ACCENT_RED),
+        ("📋 3. Answer-Dumping vs. True Learning", "Current cloud tools act as homework copy-pasters. They dump final answers instantly without guiding the student through the fundamental physical derivations and problem-solving steps.", IQOO_AMBER)
     ]
 
-    for i, (title, desc, col) in enumerate(p_cards):
+    for i, (title, desc, col) in enumerate(prob_cards):
         top_pos = Inches(1.7 + i * 1.7)
         c = add_card(s2, Inches(0.8), top_pos, Inches(11.7), Inches(1.45))
         tfc = c.text_frame
@@ -176,223 +173,176 @@ def create_deck():
         pd.space_before = Pt(4)
 
     # ==========================================
-    # SLIDE 3: THE EDGETUTOR SOLUTION
+    # SLIDE 3: HOW IT WORKS (ARCHITECTURE)
     # ==========================================
     s3 = prs.slides.add_slide(blank_layout)
     set_slide_background(s3)
-    add_header(s3, "The EdgeTutor Paradigm: Zero-Cloud, 100% On-Device AI", "02 / THE SOLUTION")
+    add_header(s3, "How It Works: End-to-End On-Device Pipeline", "02 / SYSTEM ARCHITECTURE")
 
-    sol_cards = [
-        ("✈️ 100% Airplane Mode Ready", "The app operates with strictly zero internet permissions in AndroidManifest.xml. It guarantees 0 KB network consumption, ensuring pure focus and complete data privacy.", IQOO_GREEN),
-        ("⚡ Sub-Second Socratic Steps", "Instead of dumping whole answers, EdgeTutor acts as an interactive coach. It gives step-by-step guidance, formula definitions, and exam traps in under 800 milliseconds.", IQOO_AMBER),
-        ("📚 Built-in Indian Curriculum Vault", "Class 9-10 CBSE Science & Math, plus Class 11-12 JEE Physics, Chemistry, and Calculus pre-indexed into a lightweight local knowledge base with instant search.", IQOO_CYAN),
-        ("🆓 Free Forever For Everyone", "Because compute runs 100% locally on the student's iQOO device, iQOO pays ₹0 in cloud server infrastructure, and students get free, unlimited offline tutoring for life.", WHITE)
+    arch_steps = [
+        ("Step 1: Vision", "CameraX (Airplane Mode)\nOn-device Optical Scanner\nZero network permission", IQOO_ORANGE),
+        ("Step 2: Local OCR", "Google ML Kit (Offline)\nExtracts formulas & text\nRuns fully in memory", IQOO_AMBER),
+        ("Step 3: Curriculum RAG", "NCERT Knowledge Vault\nCBSE 9-10 & JEE 11-12\nPrevents hallucinations", RGBColor(168, 85, 247)),
+        ("Step 4: SLM Engine", "Quantized Local Model\nGemma 2B / Phi-3.5 target\nSocratic step generation", IQOO_CYAN),
+        ("Step 5: Socratic UI", "Interactive Student Turn\nKaTeX math typesetting\nGuided understanding", IQOO_GREEN)
     ]
 
-    for i, (title, desc, col) in enumerate(sol_cards):
-        col_idx = i % 2
-        row_idx = i // 2
-        left_pos = Inches(0.8 + col_idx * 6.0)
-        top_pos = Inches(1.8 + row_idx * 2.5)
-        c = add_card(s3, left_pos, top_pos, Inches(5.7), Inches(2.2))
+    for i, (title, desc, col) in enumerate(arch_steps):
+        left_pos = Inches(0.8 + i * 2.4)
+        c = add_card(s3, left_pos, Inches(1.8), Inches(2.25), Inches(4.8))
         tfc = c.text_frame
         tfc.word_wrap = True
         pt = tfc.paragraphs[0]
         pt.text = title
-        pt.font.size = Pt(16)
+        pt.font.size = Pt(15)
         pt.font.bold = True
         pt.font.color.rgb = col
         pd = tfc.add_paragraph()
         pd.text = desc
-        pd.font.size = Pt(12)
-        pd.font.color.rgb = GRAY_TEXT
-        pd.space_before = Pt(6)
+        pd.font.size = Pt(11)
+        pd.font.color.rgb = WHITE
+        pd.space_before = Pt(12)
 
     # ==========================================
-    # SLIDE 4: HARDWARE SYNERGY (WHY iQOO?)
+    # SLIDE 4: WHY iQOO & VALIDATION MATRIX
     # ==========================================
     s4 = prs.slides.add_slide(blank_layout)
     set_slide_background(s4)
-    add_header(s4, "Hardware Synergy: Unlocking iQOO Gaming Silicon for AI", "03 / HARDWARE ARCHITECTURE")
+    add_header(s4, "Hardware Synergy & Implementation Validation Matrix", "03 / HARDWARE & VALIDATION")
 
-    hw_cards = [
-        ("Qualcomm Hexagon NPU", "Dedicated Neural Processing", "INT4 / INT8 quantized neural acceleration runs LLM tokens locally with ultra-low 0.8W power draw. Battery lasts all day.", IQOO_CYAN),
-        ("77 GB/s LPDDR5X RAM", "Overcoming the Memory Wall", "LLM inference is memory-bandwidth bound. iQOO's blazing 77 GB/s bus ensures instant token generation (24+ tok/s) without lag.", IQOO_AMBER),
-        ("6000mm² Vapor Chamber", "Zero Thermal Throttling", "Built for intense BGMI gaming, the aircraft-grade VC heat dissipation keeps the NPU cool during heavy student study sessions.", IQOO_GREEN)
-    ]
-
-    for i, (title, sub, desc, col) in enumerate(hw_cards):
-        left_pos = Inches(0.8 + i * 4.0)
-        c = add_card(s4, left_pos, Inches(1.8), Inches(3.7), Inches(4.8))
-        tfc = c.text_frame
-        tfc.word_wrap = True
-        pt = tfc.paragraphs[0]
-        pt.text = title
-        pt.font.size = Pt(17)
-        pt.font.bold = True
-        pt.font.color.rgb = col
-        
-        ps = tfc.add_paragraph()
-        ps.text = sub.upper()
-        ps.font.size = Pt(10)
-        ps.font.bold = True
-        ps.font.color.rgb = GRAY_TEXT
-        ps.space_before = Pt(4)
-
-        pd = tfc.add_paragraph()
-        pd.text = desc
-        pd.font.size = Pt(12)
-        pd.font.color.rgb = WHITE
-        pd.space_before = Pt(14)
-
-    # ==========================================
-    # SLIDE 5: SYSTEM PIPELINE
-    # ==========================================
-    s5 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s5)
-    add_header(s5, "End-to-End On-Device Pipeline (No Server Required)", "04 / TECHNICAL PIPELINE")
-
-    steps = [
-        ("Step 1: Vision", "CameraX / Gallery\nOn-device Optical Scanner\nZero network calls", IQOO_ORANGE),
-        ("Step 2: OCR", "Google ML Kit (Offline)\nLocal text extraction\nFormula & symbol parsing", IQOO_AMBER),
-        ("Step 3: RAG Store", "NCERT Knowledge Vault\nLocal embedding search\nCBSE 9-10 & JEE syllabus", IQOO_CYAN),
-        ("Step 4: NPU Engine", "Snapdragon Hexagon\nLocal Socratic reasoning\n< 800ms step-by-step steps", IQOO_GREEN)
-    ]
-
-    for i, (title, desc, col) in enumerate(steps):
-        left_pos = Inches(0.8 + i * 3.0)
-        c = add_card(s5, left_pos, Inches(2.0), Inches(2.8), Inches(4.3))
-        tfc = c.text_frame
-        tfc.word_wrap = True
-        pt = tfc.paragraphs[0]
-        pt.text = title
-        pt.font.size = Pt(16)
-        pt.font.bold = True
-        pt.font.color.rgb = col
-        pd = tfc.add_paragraph()
-        pd.text = desc
-        pd.font.size = Pt(12)
-        pd.font.color.rgb = WHITE
-        pd.space_before = Pt(14)
-
-    # ==========================================
-    # SLIDE 6: COMPETITIVE MATRIX
-    # ==========================================
-    s6 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s6)
-    add_header(s6, "Competitive Matrix: Why EdgeTutor Wins for Indian Students", "05 / BENCHMARKS & COMPARISON")
-
-    # Add Table
-    rows, cols = 6, 5
-    left = Inches(0.8)
-    top = Inches(1.8)
-    width = Inches(11.7)
-    height = Inches(4.8)
-    table_shape = s6.shapes.add_table(rows, cols, left, top, width, height)
-    table = table_shape.table
-
-    headers = ["Feature", "iQOO EdgeTutor", "ChatGPT Plus", "Google Lens", "Doubtnut / Vedantu"]
-    data = [
-        ["Internet Required?", "❌ ZERO (Airplane Mode)", "✅ Mandatory High Speed", "✅ Mandatory High Speed", "✅ Mandatory Active Data"],
-        ["Inference Location", "📱 On-Device NPU", "☁️ US Cloud Servers", "☁️ Google Cloud Vision", "☁️ Commercial Servers"],
-        ["Response Latency", "⚡ < 800 ms (Instant)", "⏳ 5 - 10 Seconds", "⏳ 3 - 6 Seconds", "⏳ 8 - 15 Seconds"],
-        ["Student Distraction", "🛡️ Zero (Offline Focus)", "⚠️ High (Browser/Apps)", "⚠️ Moderate", "⚠️ Ads & Notifications"],
-        ["Cost to Student", "🆓 100% Free Forever", "💰 ₹1,999 / Month", "🆓 Ad-Supported", "💰 ₹500 - ₹2,000 / Mo"]
-    ]
-
-    for c_idx, h in enumerate(headers):
-        cell = table.cell(0, c_idx)
-        cell.text = h
-        cell.fill.solid()
-        cell.fill.fore_color.rgb = CARD_BG
-        p = cell.text_frame.paragraphs[0]
-        p.font.size = Pt(13)
-        p.font.bold = True
-        p.font.color.rgb = IQOO_AMBER if c_idx == 1 else WHITE
-
-    for r_idx, row_data in enumerate(data):
-        for c_idx, val in enumerate(row_data):
-            cell = table.cell(r_idx + 1, c_idx)
-            cell.text = val
-            cell.fill.solid()
-            cell.fill.fore_color.rgb = RGBColor(12, 15, 24)
-            p = cell.text_frame.paragraphs[0]
-            p.font.size = Pt(11)
-            p.font.bold = (c_idx == 1 or c_idx == 0)
-            if c_idx == 1:
-                p.font.color.rgb = IQOO_GREEN
-            elif "❌" in val or "💰" in val or "⚠️" in val:
-                p.font.color.rgb = GRAY_TEXT
-            else:
-                p.font.color.rgb = WHITE
-
-    # ==========================================
-    # SLIDE 7: LIVE DEMO & ROADMAP
-    # ==========================================
-    s7 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s7)
-    add_header(s7, "60-Second Live Stage Demo & Future Roadmap", "06 / SUBMISSION & ROADMAP")
-
-    # Left Card: Live Demo Steps
-    c_demo = add_card(s7, Inches(0.8), Inches(1.8), Inches(5.6), Inches(4.8))
-    tfd = c_demo.text_frame
-    tfd.word_wrap = True
-    pt = tfd.paragraphs[0]
-    pt.text = "🎬 The 60-Second 'Airplane Mode' Wow Factor"
+    # Left Column: 4 Hardware Pillars
+    c_hw = add_card(s4, Inches(0.8), Inches(1.8), Inches(5.3), Inches(5.0))
+    tf_hw = c_hw.text_frame
+    tf_hw.word_wrap = True
+    pt = tf_hw.paragraphs[0]
+    pt.text = "⚡ Why iQOO Hardware Fits Edge AI"
     pt.font.size = Pt(16)
     pt.font.bold = True
     pt.font.color.rgb = IQOO_AMBER
-    
-    steps_txt = (
-        "1. 0:00-0:10 | The Proof:\n"
-        "   Swipe down status bar, turn on Airplane Mode (0 KB/s badge turns green).\n\n"
-        "2. 0:10-0:30 | The Scan:\n"
-        "   Point camera at complex textbook physics question (e.g. Incline Friction).\n\n"
-        "3. 0:30-0:50 | The NPU Magic:\n"
-        "   Instant step-by-step Socratic breakdown rendered with real KaTeX formulas.\n\n"
-        "4. 0:50-1:00 | The Impact:\n"
-        "   Browse CBSE 9-10 & JEE materials vault with zero buffering anywhere."
+
+    hw_points = (
+        "1. High-Bandwidth Memory (LPDDR5X up to 77 GB/s):\n"
+        "   Overcomes the memory-bandwidth wall for responsive autoregressive token generation.\n\n"
+        "2. Qualcomm Hexagon NPU Target:\n"
+        "   Specialized INT4 quantized matrix multiplication offload at sub-watt power efficiency.\n\n"
+        "3. 6000mm² Vapor Chamber Cooling:\n"
+        "   Provides thermal headroom to prevent throttling during long study sessions.\n\n"
+        "4. Airplane Mode Resilience:\n"
+        "   Proves gaming performance can power serious student productivity."
     )
-    pd = tfd.add_paragraph()
-    pd.text = steps_txt
+    pd = tf_hw.add_paragraph()
+    pd.text = hw_points
     pd.font.size = Pt(11)
     pd.font.color.rgb = WHITE
     pd.space_before = Pt(8)
 
-    # Right Card: Roadmap
-    c_road = add_card(s7, Inches(6.8), Inches(1.8), Inches(5.7), Inches(4.8))
-    tfr = c_road.text_frame
-    tfr.word_wrap = True
-    ptr = tfr.paragraphs[0]
-    ptr.text = "🚀 Future Roadmap & Scaling"
+    # Right Column: Validation Matrix Table
+    c_tbl = add_card(s4, Inches(6.5), Inches(1.8), Inches(6.0), Inches(5.0))
+    tf_tbl = c_tbl.text_frame
+    tf_tbl.word_wrap = True
+    pt = tf_tbl.paragraphs[0]
+    pt.text = "📊 Implementation Status (Honest Separation)"
+    pt.font.size = Pt(16)
+    pt.font.bold = True
+    pt.font.color.rgb = IQOO_CYAN
+
+    table_shape = s4.shapes.add_table(6, 3, Inches(6.65), Inches(2.5), Inches(5.7), Inches(4.1))
+    tbl = table_shape.table
+
+    matrix_data = [
+        ["Subsystem", "Demonstrated (Now)", "Target Production"],
+        ["Network", "0 KB (No Internet Manifest)", "0 KB (Strict Air-Gapped)"],
+        ["Vision / OCR", "ML Kit (Offline Local)", "CameraX + ML Kit"],
+        ["Curriculum", "CBSE 9-10 & JEE Vault", "Full K-12 Vector Store"],
+        ["SLM Runtime", "Socratic Pipeline Emulator", "Qualcomm QNN / MediaPipe"],
+        ["Speed", "Interactive Baseline", "Target: ≥24 tok/s"]
+    ]
+
+    for r_idx, row in enumerate(matrix_data):
+        for c_idx, val in enumerate(row):
+            cell = tbl.cell(r_idx, c_idx)
+            cell.text = val
+            cell.fill.solid()
+            cell.fill.fore_color.rgb = CARD_BG if r_idx == 0 else RGBColor(12, 15, 24)
+            p = cell.text_frame.paragraphs[0]
+            p.font.size = Pt(10)
+            p.font.bold = (r_idx == 0 or c_idx == 0)
+            if r_idx == 0:
+                p.font.color.rgb = IQOO_AMBER if c_idx == 1 else WHITE
+            elif c_idx == 1:
+                p.font.color.rgb = IQOO_GREEN
+            else:
+                p.font.color.rgb = WHITE
+
+    # ==========================================
+    # SLIDE 5: LIVE DEMO & IMPACT
+    # ==========================================
+    s5 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s5)
+    add_header(s5, "The 60-Second Live Stage Demo & Impact", "04 / DEMO & CONCLUSION")
+
+    c_demo = add_card(s5, Inches(0.8), Inches(1.8), Inches(5.6), Inches(4.9))
+    tfd = c_demo.text_frame
+    tfd.word_wrap = True
+    pt = tfd.paragraphs[0]
+    pt.text = "🎬 The 60-Second Airplane Mode Demo"
+    pt.font.size = Pt(16)
+    pt.font.bold = True
+    pt.font.color.rgb = IQOO_AMBER
+
+    demo_flow = (
+        "1. 0:00 - 0:15 | The Physical Proof:\n"
+        "   Swipe notification shade, toggle Airplane Mode.\n"
+        "   Status badge reacts instantly: 'AIRPLANE ON • 0 KB'.\n\n"
+        "2. 0:15 - 0:35 | The Scan & Retrieval:\n"
+        "   Point camera at textbook incline physics problem.\n"
+        "   Offline OCR extracts question; local RAG finds concept.\n\n"
+        "3. 0:35 - 0:50 | Socratic Dialogue:\n"
+        "   EdgeTutor asks: 'What forces act along the slope?'\n"
+        "   Student guided step-by-step with KaTeX formulas.\n\n"
+        "4. 0:50 - 1:00 | Verifiable 0 KB Result:\n"
+        "   Show system network stats: Exactly 0 KB consumed."
+    )
+    pd = tfd.add_paragraph()
+    pd.text = demo_flow
+    pd.font.size = Pt(11)
+    pd.font.color.rgb = WHITE
+    pd.space_before = Pt(8)
+
+    c_impact = add_card(s5, Inches(6.8), Inches(1.8), Inches(5.7), Inches(4.9))
+    tfi = c_impact.text_frame
+    tfi.word_wrap = True
+    ptr = tfi.paragraphs[0]
+    ptr.text = "🚀 Strategic Impact & Brand Value"
     ptr.font.size = Pt(16)
     ptr.font.bold = True
     ptr.font.color.rgb = IQOO_CYAN
 
-    road_txt = (
-        "🌐 Vernacular Voice Mentor (Q3 2026):\n"
-        "   Integrate offline on-device Whisper models for voice doubt queries in Telugu, Hindi, and Tamil.\n\n"
-        "📐 Interactive 3D AR Models (Q4 2026):\n"
-        "   Leverage Adreno GPU to render interactive 3D physics experiments (free-body diagrams, optics lenses).\n\n"
-        "🤝 Pre-Loaded iQOO System Feature:\n"
-        "   Opportunity to ship EdgeTutor as a default Monster Feature on iQOO Z & Neo series smartphones across India."
+    impact_txt = (
+        "• Redefines Performance Beyond Gaming:\n"
+        "  Proves iQOO silicon isn't just for BGMI—it's India's smartest productivity engine.\n\n"
+        "• The 'Parent-Approved' Buying Decision:\n"
+        "  Parents gladly invest in an iQOO phone when it serves as a distraction-free offline study mentor.\n\n"
+        "• Potential Out-of-the-Box Feature:\n"
+        "  Strong candidate for pre-loading as a flagship educational capability on FuntouchOS.\n\n"
+        "🌟 Final Punchline:\n"
+        "  'Don't distract students with the internet.\n"
+        "   Empower them with On-Device AI.'"
     )
-    pdr = tfr.add_paragraph()
-    pdr.text = road_txt
-    pdr.font.size = Pt(11)
-    pdr.font.color.rgb = WHITE
-    pdr.space_before = Pt(8)
+    pdi = tfi.add_paragraph()
+    pdi.text = impact_txt
+    pdi.font.size = Pt(11)
+    pdi.font.color.rgb = WHITE
+    pdi.space_before = Pt(8)
 
-    # Save presentation
     output_path = r"c:\Users\varanasi saivinay\OneDrive\private\IQ\submission\iQOO_EdgeTutor_PitchDeck.pptx"
     prs.save(output_path)
-    print(f"Pitch deck saved to: {output_path}")
+    print(f"Master pitch deck saved to: {output_path}")
 
-    # Copy to user's downloads folder for immediate access
     downloads_path = os.path.expanduser(r"~\Downloads\iQOO_EdgeTutor_PitchDeck.pptx")
     try:
         shutil.copy2(output_path, downloads_path)
-        print(f"Copied pitch deck to: {downloads_path}")
+        print(f"Copied master pitch deck to: {downloads_path}")
     except Exception as e:
         print(f"Could not copy to Downloads: {e}")
 
