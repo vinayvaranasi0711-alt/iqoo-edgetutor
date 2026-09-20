@@ -163,7 +163,7 @@
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-iqoo-amber opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-iqoo-amber"></span>
                             </span>
-                            <span class="text-[11px] font-mono-code font-bold text-white tracking-wider">TARGET DEVICE: SNAPDRAGON 8 GEN 3</span>
+                            <span class="text-[11px] font-mono-code font-bold text-white tracking-wider">TARGET HARDWARE ARCHITECTURE</span>
                         </div>
                         <span class="text-[9px] font-mono-code font-extrabold px-2 py-0.5 rounded-full bg-iqoo-green/20 text-iqoo-green border border-iqoo-green/40 flex items-center gap-1">
                             <i data-lucide="shield-check" class="w-3 h-3"></i>
@@ -171,47 +171,51 @@
                         </span>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-2 pt-1 border-t border-iqoo-border/70 text-center font-mono-code">
+                    <div class="grid grid-cols-4 gap-1.5 pt-1 border-t border-iqoo-border/70 text-center font-mono-code">
                         <div class="bg-iqoo-black/50 p-1.5 rounded-xl border border-iqoo-border/50">
-                            <span class="text-[8px] text-gray-400 block uppercase">NPU TARGET</span>
-                            <span class="text-[11px] font-bold text-iqoo-cyan">Hexagon HTP</span>
+                            <span class="text-[7.5px] text-gray-400 block uppercase">CHIPSET</span>
+                            <span class="text-[9.5px] font-bold text-white">Snapdragon 8 Gen 3</span>
                         </div>
                         <div class="bg-iqoo-black/50 p-1.5 rounded-xl border border-iqoo-border/50">
-                            <span class="text-[8px] text-gray-400 block uppercase">TARGET NPU</span>
-                            <span class="text-[11px] font-bold text-iqoo-amber">&ge;24 tok/s</span>
+                            <span class="text-[7.5px] text-gray-400 block uppercase">NPU TARGET</span>
+                            <span class="text-[9.5px] font-bold text-iqoo-cyan">Hexagon HTP</span>
                         </div>
                         <div class="bg-iqoo-black/50 p-1.5 rounded-xl border border-iqoo-border/50">
-                            <span class="text-[8px] text-gray-400 block uppercase">TARGET POWER</span>
-                            <span class="text-[11px] font-bold text-iqoo-green">&lt;1W*</span>
+                            <span class="text-[7.5px] text-gray-400 block uppercase">RAM BUS</span>
+                            <span class="text-[9.5px] font-bold text-iqoo-amber">77 GB/s (Target)</span>
+                        </div>
+                        <div class="bg-iqoo-black/50 p-1.5 rounded-xl border border-iqoo-border/50">
+                            <span class="text-[7.5px] text-gray-400 block uppercase">INFERENCE</span>
+                            <span class="text-[9.5px] font-bold text-iqoo-green">&ge;24 tok/s (Target)</span>
                         </div>
                     </div>
                     <div class="text-[7.5px] text-gray-400 text-center font-mono-code pt-1.5 border-t border-iqoo-border/30 mt-1.5">
-                        *Target architecture specification; hardware ammeter validation pending.
+                        *Target architecture specifications; production on-device ammeter validation pending.
                     </div>
                 </div>
 
                 <!-- 0 KB Air-Gapped Architectural Flow -->
                 <div class="bg-[#0C0E16] border border-iqoo-border rounded-xl p-2.5 text-[10px] font-mono-code space-y-1.5">
                     <div class="flex items-center justify-between text-gray-400 font-bold text-[8.5px] uppercase tracking-wider">
-                        <span>LOCAL PROCESSING PIPELINE</span>
-                        <span class="text-iqoo-green">0 KB CLOUD DATA</span>
+                        <span class="text-iqoo-cyan">DEMONSTRATED OFFLINE PIPELINE</span>
+                        <span class="text-iqoo-green font-bold">0 KB CLOUD DATA</span>
                     </div>
                     <div class="grid grid-cols-4 gap-1 text-center">
                         <div class="bg-[#121520] p-1.5 rounded-lg border border-iqoo-border/60">
                             <span class="text-iqoo-amber block font-bold text-[9px]">1. CAMERA</span>
-                            <span class="text-[7.5px] text-gray-400">Offline Scan</span>
+                            <span class="text-[7.5px] text-gray-300">Offline Scan</span>
                         </div>
                         <div class="bg-[#121520] p-1.5 rounded-lg border border-iqoo-border/60">
-                            <span class="text-iqoo-cyan block font-bold text-[9px]">2. OCR</span>
-                            <span class="text-[7.5px] text-gray-400">ML Kit Local</span>
+                            <span class="text-iqoo-cyan block font-bold text-[9px]">2. OFFLINE OCR</span>
+                            <span class="text-[7.5px] text-gray-300">ML Kit Local</span>
                         </div>
                         <div class="bg-[#121520] p-1.5 rounded-lg border border-iqoo-border/60">
-                            <span class="text-iqoo-purple block font-bold text-[9px]">3. VAULT</span>
-                            <span class="text-[7.5px] text-gray-400">NCERT RAG</span>
+                            <span class="text-iqoo-purple block font-bold text-[9px]">3. CURRICULUM</span>
+                            <span class="text-[7.5px] text-gray-300">NCERT Vault</span>
                         </div>
                         <div class="bg-[#121520] p-1.5 rounded-lg border border-iqoo-border/60">
-                            <span class="text-iqoo-green block font-bold text-[9px]">4. NPU</span>
-                            <span class="text-[7.5px] text-gray-400">Socratic AI</span>
+                            <span class="text-iqoo-green block font-bold text-[9px]">4. SOCRATIC</span>
+                            <span class="text-[7.5px] text-gray-300">Step Guidance</span>
                         </div>
                     </div>
                 </div>
